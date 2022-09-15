@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trabalho de banco de dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="content">
+
+        <div id="container">
+            <div class="settings-container">
+                
+                <div class="form-container">
+                    <label>Arquivo .txt:</label>
+                    <input type="file" onchange="loadFile(this.files[0])" id="data">
+                </div>
+                
+                <div class="form-container">
+                    <label>Quantidade de tuplas por página:</label>
+                    <input type="number" name="pageLength" onblur="checkPageQuantity(this)" id="pageLength">
+                </div>
+                
+                <div class="form-container">
+                    <label>Quantidade de páginas:</label>
+                    <input type="number" name="pageAmount" id="pageAmount">
+                </div>
+                
+                <div class="form-container">
+                    <label>Tamanho do bucket:</label>
+                    <input type="number" name="lengthNumber" id="bucketSize">
+                </div>
+                
+                <div class="form-container">
+                    <label>Número de buckets:</label>
+                    <input type="number" name="bucketNumber" id="bucketQuantity">
+                </div>
+                
+                <div class="submit-button">
+                    <button onclick="iniciarBanco(
+                        document.getElementById('pageAmount').value,
+                        document.getElementById('pageLength').value,
+                        document.getElementById('bucketSize').value,
+                        document.getElementById('bucketQuantity').value,
+                        )">Iniciar banco</button>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <label>Buscar palavra-chave:</label>
+            <input name="key" id="key">
+            <button onclick="searchWord()">Pesquisar</button>
+            <button onclick="generateStatistics()">Gerar estatísticas do banco</button>
+        </div>
+
+    </div>
+    
+    <div id="container">
+        <p id="results">
+            *Colisões são contadas sempre que uma inserção falha devido a falta de espaço em um dado bucket
+        </p>
+    </div>
+    
+</div>
+</body>
+
+</html>
+<script src="script.js"></script>
+<script src="Classes/Bucket.js"></script>
+<script src="Classes/Page.js"></script>
+<script src="Classes/Tupla.js"></script>
