@@ -1,4 +1,4 @@
-# trabalho do bafer
+# Trabalho de projeto de banco de dados (2021)
 * criar estruturas (páginas, buckets, etc) de acordo com o input do usuário
 * os dados são inseridos no banco de acordo com a função hash
 
